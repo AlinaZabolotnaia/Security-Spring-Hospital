@@ -10,4 +10,5 @@ import java.util.List;
 public interface RecordRepository extends JpaRepository<Record,Long> {
     List<Record> findAllByUserId(Long userId);
     List<Record> findAllByDoctorId(Long doctorId);
+    long countByDoctor_Id(Long doctorId);
 }

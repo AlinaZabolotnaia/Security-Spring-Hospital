@@ -1,6 +1,8 @@
 package org.main.entities;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
@@ -9,7 +11,7 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
 @Table(name = "doctor")
 public class Doctor {
     @Id
@@ -23,8 +25,8 @@ public class Doctor {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "specialization")
     @Enumerated(EnumType.STRING)
+    @Column(name = "specialization", nullable = false)
     private SPECIALIZATION specialization;
 
     @Override
@@ -42,6 +44,8 @@ public class Doctor {
 
     @Override
     public String toString() {
-        return firstName + " "+ lastName + " (" + specialization +")" ;
+        String spec = specialization != null ? specialization.getTitle() : "";
+        return (firstName != null ? firstName : "") + " " + (lastName != null ? lastName : "")
+                + (spec.isEmpty() ? "" : " (" + spec + ")");
     }
 }

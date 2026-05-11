@@ -5,7 +5,6 @@ import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
@@ -13,7 +12,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @ToString
-
 @RequiredArgsConstructor
 @Table(name = "record")
 public class Record {

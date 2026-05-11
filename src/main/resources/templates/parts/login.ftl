@@ -14,16 +14,19 @@
     </div>
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
 
-    <button class="btn btn-primary" type="submit"><#if isRegisterForm>Create<#else>Sign In</#if></button>
+    <button class="btn btn-primary" type="submit"><#if isRegisterForm>Создать аккаунт<#else>Войти</#if></button>
 </br>
 </br>
-<#if !isRegisterForm><a class="btn btn-primary" href="/registration" role="button">Registre</a></#if>
+<#if !isRegisterForm>
+    <p class="mb-2">Нет аккаунта?</p>
+    <a class="btn btn-outline-primary" href="/registration" role="button">Регистрация</a>
+</#if>
 </form>
 </#macro>
 
 <#macro logout>
 <form action="/logout" method="post">
     <input type="hidden" name="_csrf" value="${_csrf.token}" />
-    <button class="btn btn-primary" type="submit">Sign Out</button>
+    <button class="btn btn-primary" type="submit">Выйти</button>
 </form>
 </#macro>

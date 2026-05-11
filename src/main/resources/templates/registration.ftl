@@ -2,8 +2,11 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
-<h3><div class="mb-1">New user:</div></h3>
-${message?ifExists}
-</br>
+<h3 class="mb-3">Регистрация нового пользователя</h3>
+
+<#if message??>
+    <div class="alert alert-danger" role="alert">${message}</div>
+</#if>
+
 <@l.login "/registration" true />
 </@c.page>

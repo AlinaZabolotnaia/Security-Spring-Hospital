@@ -1,5 +1,6 @@
 package org.main.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -11,6 +12,7 @@ import java.util.Set;
 @Table(name = "usr")
 public class User implements UserDetails {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
@@ -63,6 +65,7 @@ public class User implements UserDetails {
         return getRoles();
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }

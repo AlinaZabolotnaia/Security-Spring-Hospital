@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="900" height="320" role="img" aria-label="Hospital building">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe8ff"/>
+      <stop offset="100%" stop-color="#e8f4fc"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="320" fill="url(#sky)"/>
+  <rect x="120" y="140" width="660" height="160" fill="#7eb8da" rx="6"/>
+  <rect x="160" y="90" width="120" height="210" fill="#a8d0e8" rx="4"/>
+  <rect x="620" y="100" width="100" height="200" fill="#a8d0e8" rx="4"/>
+  <rect x="320" y="60" width="260" height="240" fill="#8fc4e0" rx="4"/>
+  <rect x="350" y="200" width="36" height="50" fill="#4a7c9b"/>
+  <rect x="514" y="200" width="36" height="50" fill="#4a7c9b"/>
+  <g fill="#dceefa">
+    <rect x="340" y="95" width="40" height="36" rx="2"/>
+    <rect x="430" y="95" width="40" height="36" rx="2"/>
+    <rect x="520" y="95" width="40" height="36" rx="2"/>
+    <rect x="340" y="145" width="40" height="36" rx="2"/>
+    <rect x="430" y="145" width="40" height="36" rx="2"/>
+    <rect x="520" y="145" width="40" height="36" rx="2"/>
+  </g>
+  <rect x="435" y="185" width="30" height="65" fill="#d9534f" rx="2"/>
+  <path d="M300 60 L450 20 L600 60 Z" fill="#b8d9ee"/>
+  <rect x="405" y="35" width="90" height="28" fill="#fff" opacity="0.85" rx="4"/>
+  <text x="450" y="54" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#3d6b84">HOSPITAL</text>
+</svg>
