@@ -35,9 +35,19 @@ public class RegistrationController {
             return "registration";
         }
 
+        String password = user.getPassword();
+        if (password == null || password.length() < 8) {
+            model.put("message", "Пароль должен содержать не менее 8 символов.");
+            return "registration";
+        }
+        if (!password.matches(".*[A-Za-z].*") || !password.matches(".*[0-9].*")) {
+            model.put("message", "Пароль должен содержать буквы и цифры.");
+            return "registration";
+        }
+
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(password));
         userRepo.save(user);
 
         return "redirect:/login?registered";

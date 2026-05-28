@@ -13,6 +13,7 @@ public class LoginController {
             @RequestParam(value = "logout", required = false) String logout,
             @RequestParam(value = "error", required = false) String error,
             @RequestParam(value = "registered", required = false) String registered,
+            @RequestParam(value = "expired", required = false) String expired,
             Model model
     ) {
         if (logout != null) {
@@ -23,6 +24,9 @@ public class LoginController {
         }
         if (registered != null) {
             model.addAttribute("registrationSuccess", true);
+        }
+        if (expired != null) {
+            model.addAttribute("sessionExpired", true);
         }
         return "login";
     }
