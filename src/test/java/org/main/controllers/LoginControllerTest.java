@@ -15,7 +15,7 @@ public class LoginControllerTest {
     public void login_setsLoggedOutWhenLogoutParameterPresent() {
         ExtendedModelMap model = new ExtendedModelMap();
 
-        String view = loginController.login("true", null, null, model);
+        String view = loginController.login("true", null, null, null, model);
 
         assertEquals("login", view);
         assertTrue(model.containsAttribute("loggedOut"));
@@ -26,7 +26,7 @@ public class LoginControllerTest {
     public void login_setsLoginErrorWhenErrorParameterPresent() {
         ExtendedModelMap model = new ExtendedModelMap();
 
-        loginController.login(null, "true", null, model);
+        loginController.login(null, "true", null, null, model);
 
         assertTrue(model.containsAttribute("loginError"));
         assertEquals(true, model.get("loginError"));
@@ -36,21 +36,32 @@ public class LoginControllerTest {
     public void login_setsRegistrationSuccessWhenRegisteredParameterPresent() {
         ExtendedModelMap model = new ExtendedModelMap();
 
-        loginController.login(null, null, "true", model);
+        loginController.login(null, null, "true", null, model);
 
         assertTrue(model.containsAttribute("registrationSuccess"));
         assertEquals(true, model.get("registrationSuccess"));
     }
 
     @Test
+    public void login_setsSessionExpiredWhenExpiredParameterPresent() {
+        ExtendedModelMap model = new ExtendedModelMap();
+
+        loginController.login(null, null, null, "true", model);
+
+        assertTrue(model.containsAttribute("sessionExpired"));
+        assertEquals(true, model.get("sessionExpired"));
+    }
+
+    @Test
     public void login_withoutFlags_skipsMessageAttributes() {
         ExtendedModelMap model = new ExtendedModelMap();
 
-        String view = loginController.login(null, null, null, model);
+        String view = loginController.login(null, null, null, null, model);
 
         assertEquals("login", view);
         assertFalse(model.containsAttribute("loggedOut"));
         assertFalse(model.containsAttribute("loginError"));
         assertFalse(model.containsAttribute("registrationSuccess"));
+        assertFalse(model.containsAttribute("sessionExpired"));
     }
 }
